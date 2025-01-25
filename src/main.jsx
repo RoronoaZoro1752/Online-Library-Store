@@ -1,17 +1,17 @@
-import { StrictMode, Suspense   } from 'react'
+import React, { StrictMode, Suspense   } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import BrowseBooks from './components/BrowseBooks.jsx';
-import AddBook from './components/AddBook.jsx';
-import Home from './components/Home.jsx';
 import Error from './components/Error.jsx'
-import Bookdetails from './components/Bookdetails.jsx';
 import { store } from './components/store.jsx';
 import { Provider } from 'react-redux'
 import Fallback from './components/Fallback.jsx';
 
+const BrowseBooks = React.lazy(() => import('./components/BrowseBooks.jsx'));
+const AddBook = React.lazy(() => import('./components/AddBook.jsx'));
+const Home = React.lazy(() => import('./components/Home.jsx'));
+const Bookdetails = React.lazy(() => import('./components/Bookdetails.jsx'));
 
 const router = createBrowserRouter([
   {
